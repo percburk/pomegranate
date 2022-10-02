@@ -1,0 +1,118 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "import", "jsx-a11y"],
+  "reportUnusedDisableDirectives": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "args": "after-used",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "@typescript-eslint/no-require-imports": "error",
+    "array-callback-return": [
+      "error",
+      {
+        "allowImplicit": true,
+        "checkForEach": true
+      }
+    ],
+    "curly": ["warn", "all"],
+    "camelcase": ["warn", { "ignoreImports": true }],
+    "default-case": ["error", { "commentPattern": "^no default$" }],
+    "default-case-last": "error",
+    "eqeqeq": "error",
+    "import/newline-after-import": ["warn", { "count": 1 }],
+    "import/no-useless-path-segments": ["error", { "noUselessIndex": true }],
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": { "caseInsensitive": true, "order": "asc" },
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "src/**",
+            "group": "internal"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react", "src/**"],
+        "newlines-between": "never"
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+    "jsx-a11y/media-has-caption": "off",
+    "no-console": "warn",
+    "no-duplicate-imports": "error",
+    "no-else-return": "warn",
+    "no-unneeded-ternary": "warn",
+    "no-var": "error",
+    "prefer-const": "warn",
+    "prefer-object-spread": "error",
+    "prefer-template": "warn",
+    "react/display-name": "off",
+    "react/function-component-definition": [
+      "warn",
+      {
+        "namedComponents": "function-declaration",
+        "unnamedComponents": "function-expression"
+      }
+    ],
+    "react/jsx-curly-brace-presence": [
+      "warn",
+      {
+        "props": "never",
+        "children": "never",
+        "propElementValues": "always"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "allow": "as-needed",
+        "extensions": [".jsx", ".tsx"]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": "warn",
+    "require-await": "warn",
+    "spaced-comment": ["warn", "always", { "markers": ["/"] }],
+    "react/jsx-newline": ["warn", { "prevent": true }],
+    "react/jsx-no-useless-fragment": "warn"
+  }
+}

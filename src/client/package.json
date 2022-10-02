@@ -1,0 +1,35 @@
+{
+  "name": "pomegranate-client",
+  "version": "0.1.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/percburk/pomegranate.git"
+  },
+  "author": "percburk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/percburk/pomegranate/issues"
+  },
+  "homepage": "https://github.com/percburk/pomegranate#readme",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.0"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": "eslint --fix",
+    "*.{ts,tsx,js,jsx,css,md,json}": "prettier --write"
+  }
+}
