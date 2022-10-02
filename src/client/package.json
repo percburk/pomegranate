@@ -1,7 +1,6 @@
 {
   "name": "pomegranate-client",
   "version": "0.1.0",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/percburk/pomegranate.git"
@@ -18,6 +17,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@linaria/babel-preset": "^3.0.0-beta.23",
+    "@linaria/core": "^3.0.0-beta.22",
+    "@linaria/react": "^3.0.0-beta.22",
+    "@linaria/rollup": "^3.0.0-beta.22",
     "@tanstack/react-query": "^4.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -27,6 +30,7 @@
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
     "typescript": "^4.8.4",
-    "vite": "^3.1.0"
+    "vite": "^3.1.0",
+    "vite-plugin-checker": "^0.5.1"
   }
 }

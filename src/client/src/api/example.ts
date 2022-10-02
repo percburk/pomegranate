@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { QueryKeys } from 'src/constants/QueryKeys'
+import { QueryKeys } from 'src/constants/query_keys'
 import { api } from './api'
 
 export const useFetchServerString = () => {

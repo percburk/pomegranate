@@ -1,11 +1,17 @@
 import { useState } from 'react'
+import { styled } from '@linaria/react'
 import { useFetchServerString } from 'src/api/example'
 import reactLogo from 'src/assets/react.svg'
 import './main.css'
 
-export default function Main() {
+const Title = styled.h1`
+  font-size: 9rem;
+  font-style: italic;
+`
+
+export const Main = () => {
   const [count, setCount] = useState(0)
-  const { data, isLoading, isError } = useFetchServerString()
+  const { data } = useFetchServerString()
 
   return (
     <div className="App">
@@ -17,7 +23,7 @@ export default function Main() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <Title>Vite + React</Title>
       <h2>{data?.response}</h2>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
