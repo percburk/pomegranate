@@ -37,5 +37,9 @@
   "workspaces": [
     "src/client",
     "src/server"
-  ]
+  ],
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": "eslint --fix",
+    "*": "prettier --write --ignore-unknown"
+  }
 }
