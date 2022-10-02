@@ -9,7 +9,7 @@ if [ -n "$(git status --porcelain)" ]; then
   if [ -n "$(git status --porcelain -- '*.ts' '*.tsx')" ]; then
     echo "${CYAN}→${NO_COLOR} Running TypeScript compiler..."
     cd src/client && npx tsc &
-    cd src/server && npx tsc
+    cd src/server && npx tsc --noEmit
     wait
     cd ../../
   fi
