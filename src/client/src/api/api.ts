@@ -55,7 +55,9 @@ const performFetch = async <T, U = unknown>({
       )
     )
   } catch (error) {
-    return Promise.reject(new Error(`Uncaught error.\n${error}`))
+    return Promise.reject(
+      new Error(`Error in request.\nMethod: ${method}\nURL: ${requestUrl}\n${error}`)
+    )
   }
 }
 

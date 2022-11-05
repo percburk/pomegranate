@@ -5,8 +5,7 @@ import reactLogo from 'src/assets/react.svg'
 import './main.css'
 
 const Title = styled.h1`
-  font-size: 9rem;
-  font-style: italic;
+  font-size: 5rem;
 `
 
 export const Main = () => {

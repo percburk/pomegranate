@@ -1,10 +1,14 @@
 import cors from 'cors'
+import * as dotenv from 'dotenv'
 import express from 'express'
 
+dotenv.config()
+
 const app = express()
+
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.UI_BASE_URL,
     credentials: true,
   })
 )
@@ -18,5 +22,5 @@ const PORT = process.env.PORT ?? 5000
 
 app.listen(PORT, () => {
   /* eslint-disable-next-line no-console */
-  console.log('Application running on port:', PORT)
+  console.log(`Application running on http://localhost:${PORT}`)
 })
