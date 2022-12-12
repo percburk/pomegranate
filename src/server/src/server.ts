@@ -1,5 +1,5 @@
 import cors from 'cors'
-import * as dotenv from 'dotenv'
+import dotenv from 'dotenv'
 import express from 'express'
 
 dotenv.config()

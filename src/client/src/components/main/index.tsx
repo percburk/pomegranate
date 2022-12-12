@@ -8,7 +8,7 @@ const Title = styled.h1`
   font-size: 5rem;
 `
 
-export const Main = () => {
+export default function Main() {
   const [count, setCount] = useState(0)
   const { data } = useFetchServerString()
 
