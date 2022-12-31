@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
     "outDir": "dist",
     "baseUrl": ".",
     "skipLibCheck": true,
@@ -10,11 +10,20 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "paths": {
+      "src/*": ["./src/*"]
+    }
   },
-  "exclude": ["node_modules", "dist"]
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "require": ["tsconfig-paths/register"]
+  },
+  "exclude": ["node_modules", "dist"],
+  "include": ["src/**/*"]
 }

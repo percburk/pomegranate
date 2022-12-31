@@ -1,6 +1,8 @@
 import cors from 'cors'
-import * as dotenv from 'dotenv'
+import dotenv from 'dotenv'
 import express from 'express'
+import { edamamRouter } from './routes/edamam.js'
+import { foodDataCentralRouter } from './routes/food_data_central.js'
 
 dotenv.config()
 
@@ -13,10 +15,8 @@ app.use(
   })
 )
 app.use(express.json())
-
-app.get('/api', (req, res) => {
-  res.send({ response: 'Application works!' })
-})
+app.use('/api/v1/food-data-central', foodDataCentralRouter)
+app.use('/api/v1/edamam', edamamRouter)
 
 const PORT = process.env.PORT ?? 5000
 

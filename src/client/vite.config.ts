@@ -1,8 +1,8 @@
 import path from 'path'
-import linaria from '@linaria/rollup'
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig, PluginOption } from 'vite'
 import checker from 'vite-plugin-checker'
+import postcss from './postcss.config'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,6 +14,7 @@ export default defineConfig({
   resolve: {
     alias: { src: path.resolve(__dirname, './src') },
   },
+  css: { postcss },
   plugins: [
     react(),
     checker({
@@ -22,6 +23,5 @@ export default defineConfig({
       eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' },
       enableBuild: false,
     }),
-    linaria({ sourceMap: process.env.NODE_ENV !== 'production' }),
-  ],
+  ] as PluginOption[],
 })

@@ -22,7 +22,7 @@ const performFetch = async <T, U = unknown>({
   body,
   config,
 }: PerformFetchArg<U>): Promise<T> => {
-  const apiRoot = `${import.meta.env.VITE_API_URL}/api`
+  const apiRoot = `${import.meta.env.VITE_API_URL}/api/v1`
   const requestUrl = `${apiRoot}${endpoint}`
 
   const headers = new Headers({
