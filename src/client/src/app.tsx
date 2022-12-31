@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { SearchModal } from './components/search_modal'
-import './application.css'
+import './app.css'
 
 const queryClient = new QueryClient({
   defaultOptions: {
