@@ -5,7 +5,7 @@ interface SearchResultsProps {
   searchValue: string
 }
 
-export const SearchResults = ({ searchValue }: SearchResultsProps) => {
+export function SearchResults({ searchValue }: SearchResultsProps) {
   const {
     data: autocompleteResults,
     isLoading: autocompleteIsLoading,

@@ -8,10 +8,10 @@ interface SearchModalProps {
   setSearchModalIsOpen: (isOpen: boolean) => void
 }
 
-export const SearchModal = ({
+export function SearchModal({
   searchModalIsOpen,
   setSearchModalIsOpen,
-}: SearchModalProps) => {
+}: SearchModalProps) {
   const [searchValue, setSearchValue] = useState('')
 
   return (

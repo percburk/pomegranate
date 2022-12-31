@@ -8,7 +8,7 @@ interface SearchInputsProps {
   setSearchValue: (newSearch: string) => void
 }
 
-export const SearchInputs = ({ searchValue, setSearchValue }: SearchInputsProps) => {
+export function SearchInputs({ searchValue, setSearchValue }: SearchInputsProps) {
   const [input, setInput] = useState('')
 
   useEffect(() => {

@@ -9,7 +9,7 @@ const queryClient = new QueryClient({
   },
 })
 
-export const App = () => {
+export function App() {
   const [searchModalIsOpen, setSearchModalIsOpen] = useState(false)
 
   return (
