@@ -7,16 +7,7 @@
     "plugin:react-hooks/recommended"
   ],
   "plugins": ["react", "react-hooks", "@typescript-eslint", "import", "jsx-a11y"],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "env": {
-    "browser": true,
-    "es2022": true,
-    "node": true
-  },
+  "reportUnusedDisableDirectives": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2022,
@@ -25,7 +16,15 @@
       "jsx": true
     }
   },
-  "reportUnusedDisableDirectives": true,
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "rules": {
     "@typescript-eslint/no-unused-vars": [
       "warn",

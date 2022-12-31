@@ -1,3 +1,4 @@
 export enum QueryKeys {
-  Example = 'EXAMPLE',
+  FoodDataCentral = 'FOOD_DATA_CENTRAL',
+  EdamamAutocomplete = 'EDAMAM_AUTOCOMPLETE',
 }
