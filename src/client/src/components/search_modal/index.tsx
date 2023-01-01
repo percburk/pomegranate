@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Modal } from '../ui'
+import { AutoCompleteResults } from './autocomplete_results'
+import { SearchFoodList } from './search_food_list'
 import { SearchInputs } from './search_inputs'
-import { SearchResults } from './search_results'
 
 interface SearchModalProps {
   searchModalIsOpen: boolean
@@ -13,6 +14,7 @@ export function SearchModal({
   setSearchModalIsOpen,
 }: SearchModalProps) {
   const [searchValue, setSearchValue] = useState('')
+  const [selectedFood, setSelectedFood] = useState('')
 
   return (
     <Modal
@@ -20,8 +22,20 @@ export function SearchModal({
       onClose={() => setSearchModalIsOpen(false)}
       size="xl"
     >
-      <SearchInputs searchValue={searchValue} setSearchValue={setSearchValue} />
-      <SearchResults searchValue={searchValue} />
+      {selectedFood ? (
+        <SearchFoodList
+          selectedFood={selectedFood}
+          resetSelectedFood={() => setSelectedFood('')}
+        />
+      ) : (
+        <>
+          <SearchInputs searchValue={searchValue} setSearchValue={setSearchValue} />
+          <AutoCompleteResults
+            searchValue={searchValue}
+            setSelectedFood={setSelectedFood}
+          />
+        </>
+      )}
     </Modal>
   )
 }

@@ -5,7 +5,7 @@ interface LoadingSpinnerProps {
   fadeIn?: boolean
 }
 
-export const LoadingSpinner = ({ size = 'md', fadeIn }: LoadingSpinnerProps) => {
+export function LoadingSpinner({ size = 'md', fadeIn }: LoadingSpinnerProps) {
   const sizeOptions: Record<typeof size, string> = {
     xs: 'h-4 w-4 border-2',
     sm: 'w-6 h-6 border-[3px]',

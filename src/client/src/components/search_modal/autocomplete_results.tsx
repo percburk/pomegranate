@@ -3,16 +3,20 @@ import { LoadingSpinner, Alert } from '../ui'
 
 interface SearchResultsProps {
   searchValue: string
+  setSelectedFood: (food: string) => void
 }
 
-export function SearchResults({ searchValue }: SearchResultsProps) {
+export function AutoCompleteResults({
+  searchValue,
+  setSelectedFood,
+}: SearchResultsProps) {
   const {
     data: autocompleteResults,
-    isLoading: autocompleteIsLoading,
+    isInitialLoading: autocompleteIsInitialLoading,
     isError: autocompleteIsError,
   } = useEdamamAutocomplete({ searchValue })
 
-  if (autocompleteIsLoading) {
+  if (autocompleteIsInitialLoading) {
     return (
       <div className="flex w-full justify-center p-8 align-middle">
         <LoadingSpinner size="lg" fadeIn />
@@ -30,8 +34,14 @@ export function SearchResults({ searchValue }: SearchResultsProps) {
 
   return (
     <div className="h-[calc(100%-5rem)] overflow-auto">
-      {autocompleteResults.map((food) => (
-        <div key={food}>{food}</div>
+      {autocompleteResults?.map((food) => (
+        <button
+          onClick={() => setSelectedFood(food)}
+          className="block w-full py-1 text-left hover:bg-slate-50"
+          key={food}
+        >
+          {food}
+        </button>
       ))}
     </div>
   )

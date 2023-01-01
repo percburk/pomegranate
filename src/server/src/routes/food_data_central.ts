@@ -1,7 +1,7 @@
 import { stringify } from 'querystring'
 import { Router, Request } from 'express'
 import { api } from 'src/api'
-import { FOOD_DATA_CENTRAL_API_ROOT } from 'src/constants'
+import { FOOD_DATA_CENTRAL_API_URL, FOOD_DATA_CENTRAL_API_KEY } from 'src/constants'
 import {
   FdcContentType,
   FdcSortBy,
@@ -40,13 +40,13 @@ router.get(
       pageNumber,
       sortBy: sortByOptions[sortBy],
       dataType: ['Branded', 'Foundation'],
-      /* eslint-disable camelcase */
-      api_key: process.env.FOOD_DATA_CENTRAL_API_KEY,
+      /* eslint-disable-next-line camelcase */
+      api_key: FOOD_DATA_CENTRAL_API_KEY,
     })
 
     try {
       const response = await api.get<FoodDataCentralResponse>(
-        `${FOOD_DATA_CENTRAL_API_ROOT}/foods/search?${qs}`
+        `${FOOD_DATA_CENTRAL_API_URL}/foods/search?${qs}`
       )
       res.send(response)
     } catch (err) {
