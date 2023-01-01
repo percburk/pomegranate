@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon",
-    "start:server": "node --loader ./loader.js src/server.ts",
+    "start:server": "node --loader ./loader.js  src/server.ts",
     "test": "test"
   },
   "repository": {

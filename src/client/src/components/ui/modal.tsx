@@ -10,7 +10,7 @@ interface ModalProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
-export const Modal = ({ isOpen, onClose, children, size = 'lg' }: ModalProps) => {
+export function Modal({ isOpen, onClose, children, size = 'lg' }: ModalProps) {
   const sizeOptions: Record<typeof size, string> = {
     sm: 'max-w-md',
     md: 'max-w-xl',

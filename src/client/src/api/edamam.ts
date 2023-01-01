@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import queryString from 'query-string'
 import { QueryKeys } from 'src/constants/query_keys'
+import { EdamamSearchResponse } from 'src/types/edamam'
 import { api } from './api'
 
 interface EdamamAutocompleteRequest {
@@ -21,5 +22,18 @@ export const useEdamamAutocomplete = ({
       return response
     },
     enabled: !!searchValue,
+  })
+}
+
+export const useEdamamFoodSearch = (selectedFood: string) => {
+  const qs = queryString.stringify({ ingredient: selectedFood })
+
+  return useQuery({
+    queryKey: [QueryKeys.EdamamFoodSearch, { selectedFood }],
+    queryFn: async () => {
+      const response = await api.get<EdamamSearchResponse>(`/edamam/search?${qs}`)
+      return response
+    },
+    enabled: !!selectedFood,
   })
 }

@@ -8,12 +8,12 @@ interface AlertProps {
   className?: string
 }
 
-export const Alert = ({
+export function Alert({
   colorScheme = 'blue',
   fadeIn,
   children,
   className,
-}: AlertProps) => {
+}: AlertProps) {
   const colorOptions: Record<typeof colorScheme, string> = {
     red: 'bg-red-100 border-red-900 text-red-900',
     green: 'bg-emerald-100 border-emerald-900 text-emerald-900',

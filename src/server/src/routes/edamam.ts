@@ -7,7 +7,12 @@ import {
   EDAMAM_APP_KEY,
   EDAMAM_API_BASE_URL,
 } from 'src/constants'
-import { EdamamAutocompleteRequest } from 'src/types/edamam'
+import {
+  EdamamAutocompleteRequest,
+  EdamamParserResponse,
+  EdamamSearchRequest,
+} from 'src/types/edamam'
+import { prepareEdamamSearchResponse } from 'src/utils/prepareEdamamSearchResponse'
 
 const router = Router()
 
@@ -18,12 +23,26 @@ const apiAuthValues = {
 }
 /* eslint-enable camelcase */
 
-router.get('/search', async (req, res) => {
-  const qs = stringify({ ...apiAuthValues, ingr: 'spaghetti' })
+router.get('/search', async (req: EdamamSearchRequest, res) => {
+  const {
+    ingredient,
+    category = 'generic-foods',
+    nutritionType = 'cooking',
+  } = req.query
+
+  const qs = stringify({
+    ...apiAuthValues,
+    category,
+    ingr: ingredient,
+    'nutrition-type': nutritionType,
+  })
 
   try {
-    const response = await api.get(`${EDAMAM_FOOD_DATABASE_API_URL}/parser?${qs}`)
-    res.send(response)
+    const response = await api.get<EdamamParserResponse>(
+      `${EDAMAM_FOOD_DATABASE_API_URL}/parser?${qs}`
+    )
+    const searchResponse = prepareEdamamSearchResponse(response)
+    res.send(searchResponse)
   } catch (err) {
     res.status(500).send((err as Error).message)
   }
